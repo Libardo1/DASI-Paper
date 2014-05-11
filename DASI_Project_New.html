@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Highest Education Level and Region of Residence in the United States: Are they Related?</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<!-- Replace below with the title of your project -->
+
+<h3>Highest Education Level and Region of Residence in the United States: Are they Related?</h3>
+
+<h3>Introduction:</h3>
+
+<p>Is someone staying in the South Atlantic region of the United States less or more likely to be a graduate than someone staying in New England? This study is the 1st step in the long process to find this out! This intrigued me because I do not think that relationship between highest education level attained and region of current residence is often explored.It should also be a question of public interest because there is tremendous investment of the US tax-payer&#39;s money in education. For example, the federal government,which typically contributes much less for education than the sum contributed by all the state governments or all the local governments in the United States,  allocated approximately $138 billion on education in fiscal year 2013.<sup>1</sup> It is important that this enormous amount of money goes where it is required.</p>
+
+<h3>Data:</h3>
+
+<p>Data Collection:  </p>
+
+<p>The data is collected from the General Social Survey which is mostly conducted face-to-face with an in-person interview of adults (18+) in randomly selected households.<sup>2</sup> Computer-assisted personal interviewing (CAPI) began in the 2002 GSS. Under some conditions when it has proved difficult to arrange an in-person interview with a sampled respondent, GSS interviews may be conducted by telephone.<sup>3</sup> The data collected about this survey includes both demographic information and respondent&#39;s opinions on various matters. The survey is conducted by the National Opinion Research Center<sup>2</sup> which is one of the largest independent social research organizations in the United States<sup>4.For</sup> this study, Data only for the year 2008 has been considered.</p>
+
+<p>Cases:
+An unit of observation will be a respondent of the General Social Survey.</p>
+
+<p>Variables:
+The 1st variable is the region of current residence of survey respondent which is a categorical , non-ordinal variable.
+in R: gss$region</p>
+
+<p>The 2nd variable is the highest educational degree attained which is a categorical, ordinal variable.
+in R: gss$degree</p>
+
+<p>Type of Study:
+This is an observational study .
+Individuals from randomly selected households are interviewed to determine their demographic information and their opinions on various matters. The variables of interest (demographic information, opinions) are observed and not randomly assigned. Therefore, this is a random-sample observational study.</p>
+
+<p>Generalizability:
+The population of interest is the entire adult human population of the United States of America.</p>
+
+<p>The findings of the analysis pertains to the subset population of interest who could take the survey English or Spanish, since these are the 2 languages in which GSS is administered.<sup>3</sup></p>
+
+<p>The findings can be approximately generalized because </p>
+
+<p>a) the respondents are selected by random sampling so sample will be representative of the entire population. </p>
+
+<p>b) Only the data for the year 2008, which is in the recent past, has been considered, so the findings are generalizable to the adult population of present-day United States.</p>
+
+<p>Potential sources of bias:</p>
+
+<p>a) Non-response Bias: The respondents are chosen by the experimenter randomly, instead of the respondents volunteering. However,selected respondents could opt out.From Question 22 of ( <sup>3</sup> ), we clearly see that non-response rate is 29.6% for the year 2008. If people from a particular group were more heavily represented among the refusers than in the general population, the sample would have suffered from non-response bias.
+For example, covert democrats living in the deep south, may not be comfortable to share their political party affiliations to strangers performing surveys, fearing that if their affiliations are known, they may face social ostracism.</p>
+
+<p>b) Dishonesty of Response: Since the responses were obtained mostly from face-to-face interviews and not anonymously, respondents may have responded dishonestly to conform with generally accepted social norms and/or the views of the head of the household. </p>
+
+<p>Causality:
+This is an observational study and not an experimental study. In such a case, correlations between variables may be observed, but no causal conclusions can be drawn.</p>
+
+<p>Given below, is the R code to load the data. I have displayed this code to show that I have only included responses from the year 2008 to preserve generalizability.</p>
+
+<!-- Enter the code required to load your data in the space below. The data will be loaded but the line of code won't show up in your write up (echo=FALSE) in order to save space-->
+
+<pre><code class="r">load(url(&quot;http://bit.ly/dasi_gss_data&quot;))
+gss = subset(gss, gss$year == &quot;2008&quot;)
+</code></pre>
+
+<!-- In the remainder of the document, add R code chunks as needed -->
+
+<h3>Exploratory data analysis:</h3>
+
+<pre><code class="r">table(gss[, c(12, 28)])
+</code></pre>
+
+<pre><code>##                 region
+## degree           New England Middle Atlantic E. Nor. Central
+##   Lt High School           6              22              57
+##   High School             26             140             176
+##   Junior College          10              24              31
+##   Bachelor                23              51              52
+##   Graduate                16              37              29
+##                 region
+## degree           W. Nor. Central South Atlantic E. Sou. Central
+##   Lt High School              13             57              12
+##   High School                 60            236              55
+##   Junior College               8             32               9
+##   Bachelor                    27             69              12
+##   Graduate                    12             44               8
+##                 region
+## degree           W. Sou. Central Mountain Pacific
+##   Lt High School              52       15      49
+##   High School                 95       82     133
+##   Junior College              14       16      29
+##   Bachelor                    33       34      54
+##   Graduate                    14        6      28
+</code></pre>
+
+<pre><code class="r">summary(gss[, c(12, 28)])
+</code></pre>
+
+<pre><code>##             degree                 region   
+##  Lt High School: 283   South Atlantic :443  
+##  High School   :1003   E. Nor. Central:349  
+##  Junior College: 173   Pacific        :295  
+##  Bachelor      : 355   Middle Atlantic:274  
+##  Graduate      : 194   W. Sou. Central:210  
+##  NA&#39;s          :  15   Mountain       :154  
+##                        (Other)        :298
+</code></pre>
+
+<p>Note: New England, E. Sou. Central,and W. Nor. Central regions have been clubbed together in this summary as &#39;(Other)&#39;</p>
+
+<p>Discussion on Summary statistics: Clearly, majority of US citizens&#39; 
+highest level educational attainment is high school graduate across all regions. 
+However, actual proportions of all the levels varies considerably across
+ regions. Therefore, only further analysis will reveal the relationship 
+between the region of current residence and the highest level of 
+educational attainment.</p>
+
+<pre><code class="r">plot(gss$region,gss$degree,xlab=&quot;Region of Current Residence&quot;, 
+
+     ylab= &quot;Highest Degree attained&quot;,col=rainbow(5),main=&quot;Mosaic Plot&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk Education Levels in US Regions"/> </p>
+
+<p>A quick glance at the plot reveals the following:</p>
+
+<p>a) The proportion of people who left high school is the highest in the West South Central region.</p>
+
+<p>b) The proportion of graduates is the highest in the New England region.</p>
+
+<p>From the summary statistics and visualizations, it seems that there is a relationship between the highest level of education attained and the region of current residence. Further analysis will reveal the exact nature of this relationship.</p>
+
+<h3>Inference:</h3>
+
+<p>Hypotheses:  </p>
+
+<p>Null Hypothesis: 
+Highest Level of Education attained and region of current residence are independent. Education levels do not vary by region.</p>
+
+<p>Alternative Hypothesis:
+Highest Level of Education attained and region of current residence are dependent. Education levels do vary by region.</p>
+
+<p>Since the variables in question are both categorical, with both having more than 2 levels, a chi-square test of independence is the most suitable test.This test performs a hypothesis test to check whether proportions across several groups are independent or not. In this case, it will check whether proportion of education levels across regions are independent of the regions or not. No defined parameter of interest exists, so no confidence interval can be determined. </p>
+
+<p>Conditions:
+Sample observations are independent from each other due to the following reasons:</p>
+
+<p>a) GSS is a random-sample survey. </p>
+
+<p>b)The sampling is done without replacement, that is, a respondent can be part of the survey only once. Total number of responses (units) is 2023 in 2008 while the adult population of USA in 2008 was around 230 million.<sup>6</sup> <sup>7</sup> 
+Clearly, sample size is less than 10% of the population. </p>
+
+<p>c) Every respondent can have only one region of current residence and one highest level of education attained, thus contributing to only one cell in the table tabulating the 2 variables.</p>
+
+<p>It is clear from the 1st table in the exploratory data analysis that every cell,for example, number of people who left high school in New England, has a count of 5 or more.</p>
+
+<p>Thus all the conditions for the chi-square test of independence are satisfied.</p>
+
+<p>R-code:</p>
+
+<pre><code class="r">contingency_table = table(gss[, c(12, 28)])
+ct = chisq.test(contingency_table, correct = FALSE)
+ct
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  contingency_table
+## X-squared = 82.1, df = 32, p-value = 2.782e-06
+</code></pre>
+
+<pre><code class="r">
+ct$residuals
+</code></pre>
+
+<pre><code>##                 region
+## degree           New England Middle Atlantic E. Nor. Central
+##   Lt High School   -1.602919       -2.673953        1.201343
+##   High School      -2.273249        0.268099        0.279706
+##   Junior College    1.143738        0.080974        0.234118
+##   Bachelor          2.293686        0.367640       -1.151564
+##   Graduate          2.922060        2.046195       -0.750287
+##                 region
+## degree           W. Nor. Central South Atlantic E. Sou. Central
+##   Lt High School       -0.951340      -0.602033       -0.415921
+##   High School           0.007719       1.164073        1.017771
+##   Junior College       -0.727332      -0.933760        0.253513
+##   Bachelor              1.255943      -0.958581       -1.206905
+##   Graduate              0.119348       0.258760       -0.418622
+##                 region
+## degree           W. Sou. Central  Mountain   Pacific
+##   Lt High School        4.189872 -1.413389  1.199128
+##   High School          -0.872800  0.637857 -1.103854
+##   Junior College       -0.926080  0.776228  0.747662
+##   Bachelor             -0.622175  1.336443  0.305631
+##   Graduate             -1.359775 -2.284138 -0.057846
+</code></pre>
+
+<p>The function chisq.test performs a chi-square test of independence when its 1st argument(in this case, contingency_table) is a 2-dimensional matrix/array/table. The argument correct=TRUE is only required when its 1st argument is a 2X2 matrix/array/table.<sup>8</sup>
+Since, in this case, contingency_table is not 2X2, the argument &#39;correct&#39; has been set to &#39;FALSE&#39;.Please note that the contingency tables with the observed values and the expected values, which are parts of the output of ct,  have not been displayed as the observed  table has already been displayed in the Exploratory Data Analysis section and the residuals display the difference between the two.</p>
+
+<p>The residuals are Pearson residual values which measure the deviation of the observed values from the expected values under the null hypothesis.Most of the residual values are far from zero.<sup>9</sup>
+The p-value is lower than 2.782e-6, which means that if the proportions of education levels across regions were truly independent(that is, the null hypothesis was indeed true), then the probability of getting these or more extreme observations is less than 2.782e-6. Since the p-value is so small and the residuals deviate considerably from zero, the null hypothesis can be rejected. Since no confidence interval test is applicable in this case, no comparison can be made between the 2 methods.</p>
+
+<h3>Conclusion:</h3>
+
+<p>From the results of the chi-square test of independence above, it can be safely concluded that regions in the United States of America show varied proportions in the highest levels of education attained, amongst its current residents, which cannot be explained solely by chance or randomness. Since this is only an observational study, it can only be stated that the 2 variables - region of current residence and highest level of education attained, are correlated. Only experimental studies can confirm whether region of current residence influences highest level of education attained or vice-versa or both are influenced by a 3rd confounding variable. </p>
+
+<p>Possible future observational studies may include only a few regions, say only regions along the Atlantic Coast, to find whether the present correlation between the variables hold or not. If not, few regions may be amalgamated and treated as one region in similar further studies. Further observational studies may also consider more variables, especially confounding ones like median income, political affiliations, which will reveal much more than the present observational study of only 2 variables. </p>
+
+<p>However, this study is an important first step to discover the intricate relation between highest level of education attained and the region of current residence of a United States citizen.</p>
+
+<h3>References:</h3>
+
+<p>Dataset:
+Cetinkaya-Rundel, Mine : General Social Survey Cumulative File, 1972-2012 Coursera Extract. Duke University, 2014.
+Download Link:   <a href="http://bit.ly/dasi_gss_data">http://bit.ly/dasi_gss_data</a></p>
+
+<p>Other References: </p>
+
+<p><sup>1</sup> - <a href="http://febp.newamerica.net/background-analysis/education-federal-budget">http://febp.newamerica.net/background-analysis/education-federal-budget</a></p>
+
+<p><sup>2</sup> - <a href="http://en.wikipedia.org/wiki/General_Social_Survey">http://en.wikipedia.org/wiki/General_Social_Survey</a></p>
+
+<p><sup>3</sup> - <a href="http://www3.norc.org/GSS+Website/FAQs/">http://www3.norc.org/GSS+Website/FAQs/</a> </p>
+
+<p><sup>4</sup> - <a href="http://en.wikipedia.org/wiki/National_Opinion_Research_Center">http://en.wikipedia.org/wiki/National_Opinion_Research_Center</a></p>
+
+<p><sup>5</sup> - <a href="http://publicdata.norc.org/GSS/DOCUMENTS/CODEBOOK/A.pdf">http://publicdata.norc.org/GSS/DOCUMENTS/CODEBOOK/A.pdf</a></p>
+
+<p><sup>6</sup> - <a href="http://en.wikipedia.org/wiki/Voter_turnout_in_the_United_States_presidential_elections">http://en.wikipedia.org/wiki/Voter_turnout_in_the_United_States_presidential_elections</a></p>
+
+<p><sup>7</sup> - <a href="http://www.history.com/topics/the-26th-amendment">http://www.history.com/topics/the-26th-amendment</a></p>
+
+<p><sup>8</sup> - <a href="http://ww2.coastal.edu/kingw/statistics/R-tutorials/independ.html">http://ww2.coastal.edu/kingw/statistics/R-tutorials/independ.html</a></p>
+
+<p><sup>9</sup> - <a href="http://stat.ethz.ch/R-manual/R-patched/library/stats/html/chisq.test.html">http://stat.ethz.ch/R-manual/R-patched/library/stats/html/chisq.test.html</a></p>
+
+<h3>Appendix:</h3>
+
+<pre><code class="r">gss[1:20, c(12, 28)]
+</code></pre>
+
+<pre><code>##               degree          region
+## 51021    High School Middle Atlantic
+## 51022       Graduate Middle Atlantic
+## 51023    High School Middle Atlantic
+## 51024    High School Middle Atlantic
+## 51025    High School Middle Atlantic
+## 51026       Bachelor Middle Atlantic
+## 51027    High School Middle Atlantic
+## 51028    High School Middle Atlantic
+## 51029    High School Middle Atlantic
+## 51030 Lt High School Middle Atlantic
+## 51031       Graduate Middle Atlantic
+## 51032       Graduate Middle Atlantic
+## 51033       Bachelor Middle Atlantic
+## 51034    High School Middle Atlantic
+## 51035       Bachelor Middle Atlantic
+## 51036       Graduate Middle Atlantic
+## 51037    High School Middle Atlantic
+## 51038    High School Middle Atlantic
+## 51039       Bachelor Middle Atlantic
+## 51040 Junior College Middle Atlantic
+</code></pre>
+
+</body>
+
+</html>
+
