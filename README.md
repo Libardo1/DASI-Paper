@@ -1,4 +1,4 @@
-DASI_Paper
+DASI-Paper
 ==========
 This repository contains files for the project component of the Data Analysis and Statistical Inference Course on coursera.
 
